@@ -12,7 +12,7 @@ use concepture\yii2logic\services\traits\StatusTrait;
  * @package concepture\yii2comment\services
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
-class CommentServices extends Service
+class CommentService extends Service
 {
     use TreeReadTrait;
     use StatusTrait;

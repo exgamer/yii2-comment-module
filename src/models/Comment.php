@@ -5,6 +5,7 @@ use Yii;
 use concepture\yii2logic\models\ActiveRecord;
 use concepture\yii2logic\models\traits\HasTreeTrait;
 use concepture\yii2logic\models\traits\StatusTrait;
+use concepture\yii2handbook\models\traits\EntityTypeTrait;
 
 /**
  * Comment model
@@ -26,6 +27,7 @@ class Comment extends ActiveRecord
 {
     use HasTreeTrait;
     use StatusTrait;
+    use EntityTypeTrait;
 
     /**
      * {@inheritdoc}
