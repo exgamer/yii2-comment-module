@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             'id',
-            'title',
             'content',
             [
                 'attribute'=>'entity_type_id',
