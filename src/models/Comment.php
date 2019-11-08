@@ -79,7 +79,7 @@ class Comment extends ActiveRecord
             'entity_id' => Yii::t('comment','id сущности'),
             'entity_type_id' => Yii::t('comment','Сущность'),
             'user_id' => Yii::t('comment','Пользователь'),
-            'parent_id' => Yii::t('comment','Родитель'),
+            'parent_id' => Yii::t('comment','ID родителя'),
             'title' => Yii::t('comment','Заголовок'),
             'content' => Yii::t('comment','Комментарий'),
             'status' => Yii::t('comment','Статус'),
