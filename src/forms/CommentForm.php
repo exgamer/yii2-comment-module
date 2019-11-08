@@ -30,6 +30,9 @@ class CommentForm extends Form
             [
                 [
                     'content',
+                    'entity_type_id',
+                    'user_id',
+                    'entity_id',
                 ],
                 'required'
             ],

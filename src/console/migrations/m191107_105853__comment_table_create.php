@@ -16,9 +16,9 @@ class m191107_105853__comment_table_create extends Migration
     {
         $this->addTable([
             'id' => $this->primaryKey(),
-            'entity_id' => $this->integer(),
-            'entity_type_id' => $this->integer(),
-            'user_id' => $this->integer(),
+            'entity_id' => $this->integer()->notNull(),
+            'entity_type_id' => $this->integer()->notNull(),
+            'user_id' => $this->integer()->notNull(),
             'parent_id' => $this->integer(),
             'title' => $this->string(1024),
             'content' => $this->text()->notNull(),
