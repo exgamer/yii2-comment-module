@@ -8,7 +8,7 @@ use concepture\yii2logic\enum\StatusEnum;
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?php if (isset($originModel) && $originModel->isNewRecord) : ?>
+    <?php if (! isset($originModel) || (isset($originModel) && $originModel->isNewRecord)) : ?>
         <?= $form->field($model, 'user_id')->hiddenInput()->label(false); ?>
         <?= Html::activeLabel($model, 'user_id')?>
         <?= \yii\jui\AutoComplete::widget([
