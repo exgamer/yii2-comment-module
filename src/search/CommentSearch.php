@@ -3,6 +3,7 @@
 namespace concepture\yii2comment\search;
 
 use concepture\yii2comment\models\Comment;
+use yii\db\ActiveQuery;
 
 /**
  * Class CommentSearch
@@ -27,5 +28,21 @@ class CommentSearch extends Comment
                 'integer'
             ]
         ];
+    }
+
+    protected function extendQuery(ActiveQuery $query)
+    {
+        $query->andFilterWhere([
+            'id' => $this->id
+        ]);
+        $query->andFilterWhere([
+            'entity_id' => $this->entity_id
+        ]);
+        $query->andFilterWhere([
+            'entity_type_id' => $this->entity_type_id
+        ]);
+        $query->andFilterWhere([
+            'user_id' => $this->user_id
+        ]);
     }
 }
