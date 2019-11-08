@@ -24,6 +24,7 @@ class CommentSearch extends Comment
                     'entity_id',
                     'entity_type_id',
                     'user_id',
+                    'status',
                 ],
                 'integer'
             ]
@@ -43,6 +44,9 @@ class CommentSearch extends Comment
         ]);
         $query->andFilterWhere([
             'user_id' => $this->user_id
+        ]);
+        $query->andFilterWhere([
+            'status' => $this->status
         ]);
     }
 }
