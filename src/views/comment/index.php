@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             'id',
             'content',
+            'entity_id',
             [
                 'attribute'=>'entity_type_id',
                 'filter'=> Yii::$app->entityTypeService->catalog(),

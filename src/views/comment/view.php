@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'content',
+            'entity_id',
             [
                 'attribute'=>'entity_type_id',
                 'value'=>function($data) {
