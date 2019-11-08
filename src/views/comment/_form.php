@@ -24,8 +24,8 @@ use concepture\yii2logic\enum\StatusEnum;
         ]); ?>
         <?= Html::error($model, 'user_id')?>
         <?= $form->field($model, 'parent_id')->textInput() ?>
-        <?= $form->field($model, 'entity_id')->textInput() ?>
         <?= $form->field($model, 'entity_type_id')->dropDownList(\Yii::$app->entityTypeService->catalog());?>
+        <?= $form->field($model, 'entity_id')->textInput() ?>
     <?php endif;?>
     <?= $form->field($model, 'content')->textarea(['rows' => '6']) ?>
     <?= $form->field($model, 'status')->dropDownList(StatusEnum::arrayList());?>
