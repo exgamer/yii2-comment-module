@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use concepture\yii2logic\enum\StatusEnum;
 ?>
 
 <div class="user-form">
@@ -24,7 +25,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'entity_id')->textInput() ?>
     <?= $form->field($model, 'entity_type_id')->dropDownList(\Yii::$app->entityTypeService->catalog());?>
     <?= $form->field($model, 'content')->textarea(['rows' => '6']) ?>
-
+    <?= $form->field($model, 'status')->dropDownList(StatusEnum::arrayList());?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('user', 'Сохранить'), ['class' => 'btn btn-success']) ?>
