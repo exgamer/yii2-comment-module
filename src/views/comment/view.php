@@ -8,7 +8,7 @@ use concepture\yii2handbook\converters\LocaleConverter;
 /* @var $model concepture\user\models\User */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('user', 'Комментарии'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Комментарии'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -17,11 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('user', 'Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('user', 'Удалить'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('backend', 'Редактировать'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('backend', 'Удалить'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('user', 'Вы уверены, что хотите удалить ?'),
+                'confirm' => Yii::t('backend', 'Вы уверены, что хотите удалить ?'),
                 'method' => 'post',
             ],
         ]) ?>

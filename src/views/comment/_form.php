@@ -31,7 +31,7 @@ use concepture\yii2logic\enum\StatusEnum;
     <?= $form->field($model, 'status')->dropDownList(StatusEnum::arrayList());?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('user', 'Сохранить'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('backend', 'Сохранить'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model concepture\user\models\User */
 
 $this->title = Yii::t('backend', 'Добавить комментарий');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('user', 'Комментарии'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Комментарии'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-create">
