@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use mihaildev\ckeditor\CKEditor;
 ?>
 
 <div class="user-form">
@@ -23,13 +22,7 @@ use mihaildev\ckeditor\CKEditor;
     ]); ?>
     <?= Html::error($model, 'user_id')?>
     <?= $form->field($model, 'entity_type_id')->dropDownList(\Yii::$app->entityTypeService->catalog());?>
-    <?= $form->field($model, 'content')->widget(CKEditor::className(),[
-        'editorOptions' => [
-            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-            'inline' => false, //по умолчанию false
-            'allowedContent' => true,
-        ],
-    ]); ?>
+    <?= $form->field($model, 'content')->textarea(['rows' => '6']) ?>
 
 
     <div class="form-group">
