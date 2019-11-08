@@ -21,6 +21,7 @@ use yii\widgets\ActiveForm;
              }")]
     ]); ?>
     <?= Html::error($model, 'user_id')?>
+    <?= $form->field($model, 'entity_id')->textInput() ?>
     <?= $form->field($model, 'entity_type_id')->dropDownList(\Yii::$app->entityTypeService->catalog());?>
     <?= $form->field($model, 'content')->textarea(['rows' => '6']) ?>
 
