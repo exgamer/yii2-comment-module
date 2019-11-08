@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Редактировать')
 
     <?= $this->render('_form', [
         'model' => $model,
+        'originModel' => $originModel,
     ]) ?>
 
 </div>
