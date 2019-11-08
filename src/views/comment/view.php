@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'content',
+            'parent_id',
             'entity_id',
             [
                 'attribute'=>'entity_type_id',
