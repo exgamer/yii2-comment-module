@@ -23,7 +23,6 @@ use mihaildev\ckeditor\CKEditor;
     ]); ?>
     <?= Html::error($model, 'user_id')?>
     <?= $form->field($model, 'entity_type_id')->dropDownList(\Yii::$app->entityTypeService->catalog());?>
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'content')->widget(CKEditor::className(),[
         'editorOptions' => [
             'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
