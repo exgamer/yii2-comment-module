@@ -26,6 +26,8 @@ class m191107_110300__comment_table_tree_create extends Migration
         $this->addIndex(['level']);
         $this->addIndex(['is_root']);
         $this->addIndex(['parent_id', 'child_id', 'level']);
+        $this->addForeign('parent_id', 'comment','id');
+        $this->addForeign('child_id', 'comment','id');
     }
 
     /**

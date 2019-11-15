@@ -31,6 +31,9 @@ class m191107_105853__comment_table_create extends Migration
         $this->addIndex(['user_id']);
         $this->addIndex(['parent_id']);
         $this->addIndex(['status']);
+        $this->addForeign('user_id', 'user','id');
+        $this->addForeign('parent_id', 'comment','id');
+        $this->addForeign('entity_type_id', 'entity_type','id');
     }
 
     /*
