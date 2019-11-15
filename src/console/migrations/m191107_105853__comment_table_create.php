@@ -15,11 +15,11 @@ class m191107_105853__comment_table_create extends Migration
     public function up()
     {
         $this->addTable([
-            'id' => $this->primaryKey(),
-            'entity_id' => $this->integer()->notNull(),
-            'entity_type_id' => $this->integer()->notNull(),
-            'user_id' => $this->integer()->notNull(),
-            'parent_id' => $this->integer(),
+            'id' => $this->bigPrimaryKey(),
+            'entity_id' => $this->bigInteger()->notNull(),
+            'entity_type_id' => $this->bigInteger()->notNull(),
+            'user_id' => $this->bigInteger()->notNull(),
+            'parent_id' => $this->bigInteger(),
             'title' => $this->string(1024),
             'content' => $this->text()->notNull(),
             'status' => $this->smallInteger()->defaultValue(0),

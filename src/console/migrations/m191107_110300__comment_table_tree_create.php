@@ -15,8 +15,8 @@ class m191107_110300__comment_table_tree_create extends Migration
     public function up()
     {
         $this->addTable([
-            'parent_id' => $this->integer(),
-            'child_id' => $this->integer(),
+            'parent_id' => $this->bigInteger(),
+            'child_id' => $this->bigInteger(),
             'level' => $this->integer(),
             'is_root' => $this->integer()
         ]);
