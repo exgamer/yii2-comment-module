@@ -52,6 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->statusLabel();
                 }
             ],
+            'username',
+            'email',
             'created_at',
             'updated_at',
         ],

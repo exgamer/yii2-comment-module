@@ -23,6 +23,8 @@ use concepture\yii2logic\enum\StatusEnum;
                  }")]
         ]); ?>
         <?= Html::error($model, 'user_id')?>
+        <?= $form->field($model, 'username')->textInput() ?>
+        <?= $form->field($model, 'email')->textInput() ?>
         <?= $form->field($model, 'parent_id')->textInput() ?>
         <?= $form->field($model, 'entity_type_id')->dropDownList(\Yii::$app->entityTypeService->catalog());?>
         <?= $form->field($model, 'entity_id')->textInput() ?>

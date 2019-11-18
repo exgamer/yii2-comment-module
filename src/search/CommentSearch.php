@@ -28,6 +28,13 @@ class CommentSearch extends Comment
                     'status',
                 ],
                 'integer'
+            ],
+            [
+                [
+                    'username',
+                    'email',
+                ],
+                'safe'
             ]
         ];
     }
@@ -52,5 +59,7 @@ class CommentSearch extends Comment
         $query->andFilterWhere([
             'status' => $this->status
         ]);
+        $query->andFilterWhere(['like', 'username', $this->username]);
+        $query->andFilterWhere(['like', 'email', $this->email]);
     }
 }

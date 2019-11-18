@@ -17,6 +17,8 @@ class CommentForm extends Form
     public $parent_id;
     public $entity_id;
     public $entity_type_id;
+    public $username;
+    public $email;
     public $title;
     public $content;
     public $status = StatusEnum::ACTIVE;
@@ -31,7 +33,6 @@ class CommentForm extends Form
                 [
                     'content',
                     'entity_type_id',
-                    'user_id',
                     'entity_id',
                 ],
                 'required'

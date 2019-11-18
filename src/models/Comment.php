@@ -17,6 +17,8 @@ use concepture\yii2user\models\traits\UserTrait;
  * @property integer $user_id
  * @property integer $parent_id
  * @property string $title
+ * @property string $username
+ * @property string $email
  * @property string $content
  * @property integer $status
  * @property datetime $created_at
@@ -64,6 +66,19 @@ class Comment extends ActiveRecord
             ],
             [
                 [
+                    'username',
+                ],
+                'string',
+                'max'=>100
+            ],
+            [
+                [
+                    'email',
+                ],
+                'email'
+            ],
+            [
+                [
                     'content',
                 ],
                 'string',
@@ -79,6 +94,8 @@ class Comment extends ActiveRecord
             'entity_id' => Yii::t('comment','ID сущности'),
             'entity_type_id' => Yii::t('comment','Сущность'),
             'user_id' => Yii::t('comment','Пользователь'),
+            'username' => Yii::t('comment','Имя'),
+            'email' => Yii::t('comment','email'),
             'parent_id' => Yii::t('comment','ID родителя'),
             'title' => Yii::t('comment','Заголовок'),
             'content' => Yii::t('comment','Комментарий'),
