@@ -30,6 +30,14 @@ class CommentService extends Service
                 $form->username = UserRoleEnum::label(UserRoleEnum::GUEST);
             }
         }
+        /**
+         * Если указан ID пользователя,
+         * обнуляем явное указание username и username формы
+         */
+        if ($form->user_id){
+            $form->username = null;
+            $form->username = null;
+        }
 
     }
 }
