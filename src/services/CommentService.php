@@ -41,7 +41,7 @@ class CommentService extends Service
          */
         if ($form->user_id){
             $form->username = null;
-            $form->username = null;
+            $form->email = null;
         }
 
     }
