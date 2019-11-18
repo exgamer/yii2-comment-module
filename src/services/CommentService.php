@@ -7,7 +7,7 @@ use concepture\yii2logic\services\Service;
 use concepture\yii2logic\services\traits\TreeReadTrait;
 use concepture\yii2logic\services\traits\StatusTrait;
 use concepture\yii2user\enum\UserRoleEnum;
-
+use concepture\yii2user\traits\ServicesTrait as UserServices;
 
 /**
  * Class CommentServices
@@ -18,6 +18,7 @@ class CommentService extends Service
 {
     use TreeReadTrait;
     use StatusTrait;
+    use UserServices;
 
     protected function beforeCreate(Model $form)
     {
@@ -44,5 +45,16 @@ class CommentService extends Service
             $form->email = null;
         }
 
+    }
+
+    protected function afterCreate(Model $form)
+    {
+        /**
+         * После создания коммента если указан email
+         * добавляем его в  справочник почтовых адресов
+         */
+        if ($form->email) {
+            $this->emailHandbookService()->addEmail($form->email);
+        }
     }
 }
