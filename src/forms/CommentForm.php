@@ -7,8 +7,8 @@ use concepture\yii2logic\forms\Form;
 use concepture\yii2logic\enum\StatusEnum;
 
 /**
- * Class DomainForm
- * @package concepture\yii2domain\forms
+ * Class CommentForm
+ * @package concepture\yii2comment\forms
  * @author Olzhas Kulzhambekov <exgamer@live.ru>
  */
 class CommentForm extends Form
