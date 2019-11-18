@@ -1,10 +1,12 @@
 <?php
 namespace concepture\yii2comment\services;
 
-
+use Yii;
+use concepture\yii2logic\forms\Model;
 use concepture\yii2logic\services\Service;
 use concepture\yii2logic\services\traits\TreeReadTrait;
 use concepture\yii2logic\services\traits\StatusTrait;
+use concepture\yii2user\enum\UserRoleEnum;
 
 
 /**
@@ -16,4 +18,18 @@ class CommentService extends Service
 {
     use TreeReadTrait;
     use StatusTrait;
+
+    protected function beforeCreate(Model $form)
+    {
+        if (! $form->user_id){
+            /**
+             * Для случаев когда нужно разрешить оставлять коменты гостям, без указания имени и почты
+             * подставляем метку роли гость
+             */
+            if (! $form->username) {
+                $form->username = UserRoleEnum::label(UserRoleEnum::GUEST);
+            }
+        }
+
+    }
 }
