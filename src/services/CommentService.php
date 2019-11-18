@@ -21,6 +21,11 @@ class CommentService extends Service
 
     protected function beforeCreate(Model $form)
     {
+        /**
+         * Если ID пользователя не указан,
+         * проверяем поля username и username формы на заполнение
+         * и если там пусто заполняем username дефолтным значением
+         */
         if (! $form->user_id){
             /**
              * Для случаев когда нужно разрешить оставлять коменты гостям, без указания имени и почты
