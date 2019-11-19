@@ -22,6 +22,12 @@ class CommentForm extends Form
     public $title;
     public $content;
     public $status = StatusEnum::ACTIVE;
+    /**
+     * Метка которая указывает нужно ли попытаться зарегестрировать пользователя который оставил свой email
+     *
+     * @var bool
+     */
+    public static $trySignUp = false;
 
     /**
      * @see CForm::formRules()
