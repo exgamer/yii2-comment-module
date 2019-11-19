@@ -43,11 +43,7 @@ class CommentService extends Service
              */
             if (! $form->email) {
                 $signUpForm = new SignUpForm();
-                /**
-                 * Чтобы не было совпадений по имени пользователя
-                 * добавляем к имени microtime()
-                 */
-                $signUpForm->username = $form->username."_".microtime();
+                $signUpForm->username = $form->username;
                 $signUpForm->identity = $form->email;
                 $signUpForm->validation = Yii::$app->security->generateRandomString(10);
                 $user = $this->authService()->signUp($signUpForm);
