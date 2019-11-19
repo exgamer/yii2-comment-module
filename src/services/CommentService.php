@@ -41,7 +41,7 @@ class CommentService extends Service
              * Если указан email пробуем зарегать пользователя
              * и подставить user_id
              */
-            if (! $form->email) {
+            if ($form->email) {
                 $signUpForm = new SignUpForm();
                 $signUpForm->username = $form->username;
                 $signUpForm->identity = $form->email;
