@@ -112,9 +112,11 @@ class Comment extends ActiveRecord
         return parent::afterSave($insert, $changedAttributes);
     }
 
-    public function afterDelete()
+
+
+    public function beforeDelete()
     {
         $this->removeTree();
-        return parent::afterDelete();
+        return parent::beforeDelete();
     }
 }
