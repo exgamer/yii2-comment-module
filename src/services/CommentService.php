@@ -8,6 +8,7 @@ use concepture\yii2logic\services\traits\TreeReadTrait;
 use concepture\yii2logic\services\traits\StatusTrait;
 use concepture\yii2user\enum\UserRoleEnum;
 use concepture\yii2user\traits\ServicesTrait as UserServices;
+use concepture\yii2user\forms\SignUpForm;
 
 /**
  * Class CommentServices
@@ -35,7 +36,23 @@ class CommentService extends Service
             if (! $form->username) {
                 $form->username = UserRoleEnum::label(UserRoleEnum::GUEST);
             }
+
+            /**
+             * Если указан email пробуем зарегать пользователя
+             * и подставить user_id
+             */
+            if (! $form->email) {
+                $signUpForm = new SignUpForm();
+                $signUpForm->username = $form->username."_".microtime();
+                $signUpForm->identity = $form->email;
+                $signUpForm->validation = Yii::$app->security->generateRandomString(10);
+                $user = $this->authService()->signUp($signUpForm);
+                if ($user) {
+                    $form->user_id = $user->id;
+                }
+            }
         }
+
         /**
          * Если указан ID пользователя,
          * обнуляем явное указание username и username формы
@@ -44,7 +61,6 @@ class CommentService extends Service
             $form->username = null;
             $form->email = null;
         }
-
     }
 
     protected function afterCreate(Model $form)
