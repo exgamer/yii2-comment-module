@@ -39,7 +39,7 @@ class CommentSearch extends Comment
         ];
     }
 
-    protected function extendQuery(ActiveQuery $query)
+    public function extendQuery(ActiveQuery $query)
     {
         $query->andFilterWhere([
             'id' => $this->id
