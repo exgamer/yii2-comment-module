@@ -2,6 +2,7 @@
 namespace concepture\yii2comment\services;
 
 use Yii;
+use yii\db\ActiveQuery;
 use concepture\yii2logic\forms\Model;
 use concepture\yii2logic\services\Service;
 use concepture\yii2logic\services\traits\TreeReadTrait;
@@ -9,6 +10,8 @@ use concepture\yii2logic\services\traits\StatusTrait;
 use concepture\yii2user\enum\UserRoleEnum;
 use concepture\yii2user\traits\ServicesTrait as UserServices;
 use concepture\yii2user\forms\SignUpForm;
+use concepture\yii2handbook\services\traits\ModifySupportTrait as HandbookModifySupportTrait;
+use concepture\yii2handbook\services\traits\ReadSupportTrait as HandbookReadSupportTrait;
 
 /**
  * Class CommentServices
@@ -20,9 +23,12 @@ class CommentService extends Service
     use TreeReadTrait;
     use StatusTrait;
     use UserServices;
+    use HandbookModifySupportTrait;
+    use HandbookReadSupportTrait;
 
     protected function beforeCreate(Model $form)
     {
+        $this->setCurrentDomain($form);
         /**
          * Если ID пользователя не указан,
          * проверяем поля username и username формы на заполнение
@@ -72,5 +78,17 @@ class CommentService extends Service
         if ($form->email) {
             $this->emailHandbookService()->addEmail($form->email);
         }
+    }
+
+    /**
+     * Метод для расширения find()
+     * !! ВНимание эти данные будут поставлены в find по умолчанию все всех случаях
+     *
+     * @param ActiveQuery $query
+     * @see \concepture\yii2logic\services\Service::extendFindCondition()
+     */
+    protected function extendQuery(ActiveQuery $query)
+    {
+        $this->applyDomain($query);
     }
 }
