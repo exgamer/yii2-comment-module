@@ -17,6 +17,7 @@ class m191107_105853__comment_table_create extends Migration
         $this->addTable([
             'id' => $this->bigPrimaryKey(),
             'entity_id' => $this->bigInteger()->notNull(),
+            'domain_id' => $this->bigInteger()->notNull(),
             'entity_type_id' => $this->bigInteger()->notNull(),
             'user_id' => $this->bigInteger(),
             'username' => $this->string(100),
@@ -35,6 +36,7 @@ class m191107_105853__comment_table_create extends Migration
         $this->addIndex(['status']);
         $this->addForeign('user_id', 'user','id');
         $this->addForeign('parent_id', 'comment','id');
+        $this->addForeign('domain_id', 'domain','id');
         $this->addForeign('entity_type_id', 'entity_type','id');
     }
 

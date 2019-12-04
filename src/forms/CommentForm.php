@@ -15,6 +15,7 @@ class CommentForm extends Form
 {
     public $user_id;
     public $parent_id;
+    public $domain_id;
     public $entity_id;
     public $entity_type_id;
     public $username;

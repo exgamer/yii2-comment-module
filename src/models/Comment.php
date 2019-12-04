@@ -51,6 +51,7 @@ class Comment extends ActiveRecord
                 [
                     'status',
                     'user_id',
+                    'domain_id',
                     'parent_id',
                     'entity_id',
                     'entity_type_id',
@@ -98,6 +99,7 @@ class Comment extends ActiveRecord
     {
         return [
             'id' => Yii::t('comment','#'),
+            'domain_id' => Yii::t('comment','Домен'),
             'entity_id' => Yii::t('comment','ID сущности'),
             'entity_type_id' => Yii::t('comment','Сущность'),
             'user_id' => Yii::t('comment','Пользователь'),
