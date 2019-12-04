@@ -84,6 +84,13 @@ class Comment extends ActiveRecord
                 'string',
                 'max'=>2048
             ],
+            [
+                [
+                    'email',
+                    'username',
+                ],
+                'trim'
+            ],
         ];
     }
 
