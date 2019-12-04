@@ -30,6 +30,7 @@ use concepture\yii2logic\enum\StatusEnum;
             ); ?>
         </div>
         <div class="card-body">
+            <?php if (! isset($originModel) || (isset($originModel) && $originModel->isNewRecord)) : ?>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <?= Html::activeHiddenInput($model, 'user_id') ?>
@@ -43,8 +44,8 @@ use concepture\yii2logic\enum\StatusEnum;
                             'minLength'=>'2',
                             'autoFill'=>true,
                             'select' => new \yii\web\JsExpression("function( event, ui ) {
-                                    $('#commentform-user_id').val(ui.item.id);
-                             }")]
+                                        $('#commentform-user_id').val(ui.item.id);
+                                 }")]
                     ]); ?>
                     <?= Html::error($model, 'user_id', ['class' => 'text-danger form-text'])?>
                 </div>
@@ -69,6 +70,7 @@ use concepture\yii2logic\enum\StatusEnum;
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <?= $form->field($model, 'entity_id')->textInput(['maxlength' => true]) ?>
                 </div>
+                <?php endif;?>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <?= $form
                         ->field($model, 'status')
