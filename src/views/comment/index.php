@@ -2,65 +2,58 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\Pjax;
+use kamaelkz\yii2admin\v1\widgets\formelements\Pjax;
+use concepture\yii2handbook\converters\LocaleConverter;
 use concepture\yii2logic\enum\StatusEnum;
+use concepture\yii2logic\enum\IsDeletedEnum;
+use yii\helpers\Url;
 
-/* @var $this yii\web\View */
-/* @var $searchModel backend\search\UserSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = Yii::t('backend', 'Комментарии');
-$this->params['breadcrumbs'][] = $this->title;
+$this->setTitle($searchModel::label());
+$this->pushBreadcrumbs($this->title);
+$this->viewHelper()->pushPageHeader();
 ?>
-<div class="user-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a(Yii::t('backend', 'Добавить комментариий'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            'id',
-            'content',
-            'parent_id',
-            'entity_id',
-            [
-                'attribute'=>'entity_type_id',
-                'filter'=> Yii::$app->entityTypeService->catalog(),
-                'value'=>function($data) {
-                    return $data->getEntityName();
-                }
-            ],
-            [
-                'attribute'=>'user_id',
-                'filter'=> Yii::$app->userService->catalog(),
-                'value'=>function($data) {
-                    return $data->getUserName();
-                }
-            ],
-            [
-                'attribute'=>'status',
-                'filter'=> StatusEnum::arrayList(),
-                'value'=>function($data) {
-                    return $data->statusLabel();
-                }
-            ],
-            'username',
-            'email',
-            'created_at',
-            'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
+<?php Pjax::begin(); ?>
+<?= GridView::widget([
+    'dataProvider' => $dataProvider,
+    'searchVisible' => true,
+    'searchParams' => [
+        'model' => $searchModel
+    ],
+    'columns' => [
+        'id',
+        'content',
+        'parent_id',
+        'entity_id',
+        [
+            'attribute'=>'entity_type_id',
+            'filter'=> Yii::$app->entityTypeService->catalog(),
+            'value'=>function($data) {
+                return $data->getEntityName();
+            }
         ],
-    ]); ?>
+        [
+            'attribute'=>'user_id',
+            'filter'=> Yii::$app->userService->catalog(),
+            'value'=>function($data) {
+                return $data->getUserName();
+            }
+        ],
+        [
+            'attribute'=>'status',
+            'filter'=> StatusEnum::arrayList(),
+            'value'=>function($data) {
+                return $data->statusLabel();
+            }
+        ],
+        'username',
+        'email',
+        'created_at',
+        'updated_at',
 
-    <?php Pjax::end(); ?>
+        [
+            'class'=>'yii\grid\ActionColumn',
+        ],
+    ],
+]); ?>
 
-</div>
+<?php Pjax::end(); ?>
