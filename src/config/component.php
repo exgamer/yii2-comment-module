@@ -2,7 +2,7 @@
 
 return [
     'commentService' => [
-        'class' => '\concepture\yii2comment\services\CommentService'
+        'class' => 'concepture\yii2comment\services\CommentService'
     ]
 ];
 
