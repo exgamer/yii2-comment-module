@@ -1,7 +1,6 @@
 <?php
 namespace concepture\yii2comment\services;
 
-use concepture\yii2handbook\services\traits\EntityTypeSupportTrait;
 use Yii;
 use yii\db\ActiveQuery;
 use concepture\yii2logic\forms\Model;
@@ -26,7 +25,6 @@ class CommentService extends Service
     use UserServices;
     use HandbookModifySupportTrait;
     use HandbookReadSupportTrait;
-    use EntityTypeSupportTrait;
 
     protected function beforeCreate(Model $form)
     {
