@@ -27,7 +27,7 @@ class m191107_105853__comment_table_create extends Migration
             'content' => $this->text()->notNull(),
             'status' => $this->smallInteger()->defaultValue(0),
             'created_at' => $this->dateTime()->defaultValue(new \yii\db\Expression("NOW()")),
-            'updated_at' => $this->dateTime()->append('ON UPDATE NOW()'),
+            'updated_at' => $this->dateTime(),
         ]);
         $this->addIndex(['entity_id']);
         $this->addIndex(['entity_type_id']);
