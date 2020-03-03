@@ -64,8 +64,8 @@ class CommentService extends Service
          * обнуляем явное указание username и username формы
          */
         if ($form->user_id){
-            $form->username = null;
-            $form->email = null;
+//            $form->username = null;
+//            $form->email = null;
         }
     }
 
