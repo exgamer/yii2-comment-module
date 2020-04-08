@@ -1,5 +1,8 @@
 <?php
 
+use kamaelkz\yii2admin\v1\modules\audit\actions\AuditAction;
+use kamaelkz\yii2admin\v1\modules\audit\services\AuditService;
+
 $this->setTitle(Yii::t('yii2admin', 'Редактирование'));
 $this->pushBreadcrumbs(['label' => $model::label(), 'url' => ['index']]);
 $this->pushBreadcrumbs($this->title);

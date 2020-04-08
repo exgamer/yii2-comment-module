@@ -9,5 +9,5 @@ namespace concepture\yii2comment\web\controllers;
  */
 class CommentController extends Controller
 {
-
+    
 }
